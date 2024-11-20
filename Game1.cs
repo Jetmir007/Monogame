@@ -45,6 +45,23 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
+            KeyboardState kState = Keyboard.GetState();
+            if(kState.IsKeyDown(Keys.W)){
+                paddleLeft.Y-=5;
+            }
+            if(kState.IsKeyDown(Keys.S)){
+                paddleLeft.Y+=5;
+            }
+
+            if(kState.IsKeyDown(Keys.Up)){
+                paddleRight.Y-=5;
+            }
+            if(kState.IsKeyDown(Keys.Down)){
+                paddleRight.Y+=5;
+            }
+
+
+
         // TODO: Add your update logic here
 
         base.Update(gameTime);
