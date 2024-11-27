@@ -17,11 +17,8 @@ public class Game1 : Game
 
     Rectangle paddleRight = new Rectangle(770, 200, 20, 100);
 
-    Rectangle ball = new Rectangle(390, 230, 20, 20);
 
-    float velocityX = 3;
-
-    float velocityY = 3;
+    Ball ball;
 
     int scoreLeftPlayer = 0;
 
@@ -48,6 +45,9 @@ public class Game1 : Game
         pixel = Content.Load<Texture2D>(assetName: "pixel");
         fontScore = Content.Load<SpriteFont>(assetName: "Scores");
 
+
+        ball = new Ball(pixel);
+
         // TODO: use this.Content to load your game content here
     }
 
@@ -58,35 +58,34 @@ public class Game1 : Game
 
             KeyboardState kState = Keyboard.GetState();
             if(kState.IsKeyDown(Keys.W) && paddleLeft.Y > 0){
-                paddleLeft.Y-=5;
+                paddleLeft.Y-=10;
             }
             if(kState.IsKeyDown(Keys.S) && paddleLeft.Y + paddleLeft.Height < 480){
-                paddleLeft.Y+=5;
+                paddleLeft.Y+=10;
             }
+           
 
             if(kState.IsKeyDown(Keys.Up) && paddleRight.Y > 0){
-                paddleRight.Y-=5;
+                paddleRight.Y-=10;
             }
             if(kState.IsKeyDown(Keys.Down) && paddleRight.Y + paddleRight.Height < 480){
-                paddleRight.Y+=5;
+                paddleRight.Y+=10;
             }
 
-            ball.Y += (int)velocityY;
-            ball.X += (int)velocityX;
-            if(ball.Intersects(paddleRight) || ball.Intersects(paddleLeft)){
-                velocityX *= -1.1f;
-                velocityY *= 1.1f;
-            }
-            if(ball.Y <= 0 || ball.Y + ball.Height >= 480){
-                velocityY *= -1;
+            
+            ball.Update();
+            
+
+            if(ball.Rectangle.X <= 0){
+                ball.Reset();
+                scoreRightPlayer++;
             }
 
-            if(ball.X <= 0 || ball.X + ball.Width >= 800){
-                ball.X = 390;
-                ball.Y = 230;
-                velocityX = 3;
-                velocityY = 3;
+            else if(ball.Rectangle.X + ball.Rectangle.Width >=800){
+                ball.Reset();
+                scoreLeftPlayer++;
             }
+            
             
             
 
@@ -110,7 +109,7 @@ public class Game1 : Game
 
         _spriteBatch.Draw(pixel, paddleLeft, Color.DeepPink);
         _spriteBatch.Draw(pixel, paddleRight, Color.DarkBlue);
-        _spriteBatch.Draw(pixel, ball, Color.Red);
+        ball.Draw(_spriteBatch);
         _spriteBatch.End();
         base.Draw(gameTime);
     }
