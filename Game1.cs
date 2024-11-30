@@ -10,6 +10,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
+<<<<<<< Updated upstream
     Texture2D pixel;
     SpriteFont fontScore;
 
@@ -27,6 +28,8 @@ public class Game1 : Game
 
     int scoreRightPlayer = 0;
 
+=======
+>>>>>>> Stashed changes
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -45,9 +48,12 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+<<<<<<< Updated upstream
         pixel = Content.Load<Texture2D>(assetName: "pixel");
         fontScore = Content.Load<SpriteFont>(assetName: "Scores");
 
+=======
+>>>>>>> Stashed changes
         // TODO: use this.Content to load your game content here
     }
 
@@ -56,6 +62,7 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
+<<<<<<< Updated upstream
             KeyboardState kState = Keyboard.GetState();
             if(kState.IsKeyDown(Keys.W) && paddleLeft.Y > 0){
                 paddleLeft.Y-=5;
@@ -92,6 +99,8 @@ public class Game1 : Game
 
 
 
+=======
+>>>>>>> Stashed changes
         // TODO: Add your update logic here
 
         base.Update(gameTime);
@@ -104,6 +113,7 @@ public class Game1 : Game
 
 
         // TODO: Add your drawing code here
+<<<<<<< Updated upstream
         _spriteBatch.Begin();
         _spriteBatch.DrawString(fontScore, scoreLeftPlayer.ToString(), new Vector2(40, 10), Color.DarkOrange);
         _spriteBatch.DrawString(fontScore, scoreRightPlayer.ToString(), new Vector2(720, 10), Color.DarkOrange);
@@ -112,6 +122,9 @@ public class Game1 : Game
         _spriteBatch.Draw(pixel, paddleRight, Color.DarkBlue);
         _spriteBatch.Draw(pixel, ball, Color.Red);
         _spriteBatch.End();
+=======
+
+>>>>>>> Stashed changes
         base.Draw(gameTime);
     }
 }

@@ -13,6 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
+<<<<<<< Updated upstream
 #begin pixel.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -33,3 +34,5 @@
 /processorParam:TextureFormat=Compressed
 /build:Scores.spritefont
 
+=======
+>>>>>>> Stashed changes
