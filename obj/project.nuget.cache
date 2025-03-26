@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-  "dgSpecHash": "zcNiqrzxTJs=",
-=======
   "dgSpecHash": "0xMaw6tYnXs=",
->>>>>>> Stashed changes
   "success": false,
   "projectFilePath": "C:\\Github\\monogame\\Monogame\\Monogame.csproj",
   "expectedPackageFiles": [],
