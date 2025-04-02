@@ -11,23 +11,6 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-<<<<<<< Updated upstream
-    Texture2D pixel;
-    SpriteFont fontScore;
-
-
-    Paddle paddleLeft;
-
-    Paddle paddleRight;
-
-    Ball ball;
-
-    int scoreLeftPlayer = 0;
-
-    int scoreRightPlayer = 0;
-
-=======
->>>>>>> Stashed changes
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -50,20 +33,15 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-<<<<<<< Updated upstream
         pixel = Content.Load<Texture2D>(assetName: "pixel");
         fontScore = Content.Load<SpriteFont>(assetName: "Scores");
 
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-=======
+
 
         ball = new Ball(pixel);
         paddleLeft = new Paddle(pixel, new Rectangle(10, 540, 20, 200), Keys.W, Keys.S);
         paddleRight = new Paddle(pixel, new Rectangle(1890, 200, 20, 200), Keys.Up, Keys.Down);
 
->>>>>>> c7b5dc989a8cbe53f3c0da3726a6a0df2fc3e9aa
         // TODO: use this.Content to load your game content here
     }
 
@@ -72,12 +50,9 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
             KeyboardState kState = Keyboard.GetState();
             if(kState.IsKeyDown(Keys.W) && paddleLeft.Y > 0){
                 paddleLeft.Y-=5;
-=======
             paddleLeft.Update();
 
             paddleRight.Update();
@@ -85,7 +60,6 @@ public class Game1 : Game
             ball.Update();
             if(paddleLeft.Rectangle.Intersects(ball.Rectangle) || paddleRight.Rectangle.Intersects(ball.Rectangle)){
                 ball.Bounce();
->>>>>>> c7b5dc989a8cbe53f3c0da3726a6a0df2fc3e9aa
             }
             
     
@@ -104,12 +78,10 @@ public class Game1 : Game
 
 
 
-=======
->>>>>>> Stashed changes
         // TODO: Add your update logic here
 
         base.Update(gameTime);
-    }
+    }}
 
     protected override void Draw(GameTime gameTime)
     {
@@ -117,7 +89,6 @@ public class Game1 : Game
 
 
         // TODO: Add your drawing code here
-<<<<<<< Updated upstream
         _spriteBatch.Begin();
         _spriteBatch.DrawString(fontScore, scoreLeftPlayer.ToString(), new Vector2(40, 10), Color.DarkOrange);
         _spriteBatch.DrawString(fontScore, scoreRightPlayer.ToString(), new Vector2(1840, 10), Color.DarkOrange);
@@ -127,9 +98,7 @@ public class Game1 : Game
         ball.Draw(_spriteBatch);
 
         _spriteBatch.End();
-=======
 
->>>>>>> Stashed changes
         base.Draw(gameTime);
     }
 }
